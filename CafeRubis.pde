@@ -48,20 +48,29 @@ void displayProducts()
   line(width / 2, height / 6 * 0.5, width / 2, height / 6 * 5.8);
   
   float i = 1;
+  float j = 0.01f;
+  float k = 1;
   float x = width / 8;
   float y = height / 6;
+  float x2 = width / 8 * 3;
   
   for(Product p:products)
   {
+    fill(255);
+    stroke(0);
+    j = j + 0.7f;
+    rect(x - 12, y * j, 270, 50);
+    
+    fill(0);
     textAlign(LEFT);
     textSize(18);
     text(p.name, x, y * i);
     i = i + 0.7f;
   }
   
-  for(Product b:bill)
+  for(Product p:products)
   {
-    textAlign(LEFT);
-    
+    text(nf(p.price), x2, y * k);
+    k = k + 0.7f;
   }
 }
