@@ -36,20 +36,6 @@ void printProducts()
   }
 }
 
-void draw()
-{
-  float x = width / 8;
-  float y = height / 6;
-  
-  fill(255);
-  stroke(0);
-  rect(x * 4.5, y * 0.7, 300, 500);
-  
-  textAlign(LEFT);
-  fill(0);
-  text("Your Bill", x * 5.5, y);
-}
-
 void displayProducts()
 {
   textAlign(CENTER); 
@@ -89,19 +75,51 @@ void displayProducts()
 
 void mousePressed()
 {
-   for(int i = 0; i < products.size(); i ++)
+   for(int i = 0; i < bill.size(); i ++)
    {
+     //Product p = products.get(i);
      //Product b = bill.get(i);
-     //float total;
-     float j = 0.01f;
+     ////float total;
+      float j = 1.5f;
+      //float x = width / 8;
+     //float y = height / 6;
      
-     if(mouseX > posx - 12 && mouseX < 365)
+     if(mouseX > posx - 12 && mouseX < posx + 270)
      {
        if(mouseY > posy * j)
        {
-         //textAlign(LEFT);
-         //text(nf(b.price, 1, 2), 
+         /*fill(0);
+         textAlign(LEFT);
+         //text("Total:", x * 5, y * j);
+         text(nf(b.price, 1, 2), x * 7, y * j);*/
+         displayBill();
        }
      }
+     j = j + 1.5f;
    }
+}
+
+void displayBill()
+{
+  
+}
+
+void draw()
+{
+  float x = width / 8;
+  float y = height / 6;
+  float j = 1.5f;
+  float total = 0.0;
+  
+  fill(255);
+  stroke(0);
+  rect(x * 4.5, y * 0.7, 300, 500);
+  
+  textAlign(LEFT);
+  fill(0);
+  text("Your Bill", x * 5.5, y);
+  
+  textAlign(LEFT);
+  text("Total:", x * 4.7, y * j);
+  text(nf(total, 1, 2), x * 7, y * j);
 }
