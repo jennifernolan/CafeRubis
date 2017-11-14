@@ -13,6 +13,9 @@ void setup()
 ArrayList<Product> products = new ArrayList<Product>();
 ArrayList<Product> bill = new ArrayList<Product>();
 
+float posx = width / 8;
+float posy = height / 6;
+
 void loadData()
 {
   Table table = loadTable("cafe.csv", "header");
@@ -35,7 +38,16 @@ void printProducts()
 
 void draw()
 {
+  float x = width / 8;
+  float y = height / 6;
   
+  fill(255);
+  stroke(0);
+  rect(x * 4.5, y * 0.7, 300, 500);
+  
+  textAlign(LEFT);
+  fill(0);
+  text("Your Bill", x * 5.5, y);
 }
 
 void displayProducts()
@@ -70,7 +82,26 @@ void displayProducts()
   
   for(Product p:products)
   {
-    text(nf(p.price), x2, y * k);
+    text(nf(p.price, 1, 2), x2, y * k);
     k = k + 0.7f;
   }
+}
+
+void mousePressed()
+{
+   for(int i = 0; i < products.size(); i ++)
+   {
+     //Product b = bill.get(i);
+     //float total;
+     float j = 0.01f;
+     
+     if(mouseX > posx - 12 && mouseX < 365)
+     {
+       if(mouseY > posy * j)
+       {
+         //textAlign(LEFT);
+         //text(nf(b.price, 1, 2), 
+       }
+     }
+   }
 }
